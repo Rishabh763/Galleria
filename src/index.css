@@ -149,6 +149,13 @@ grid-template-columns: inherit;
   max-width: 100%;
   display: block;
   margin-bottom: calc(var(--gap)/1.1);
+
 }
+
+.hero-img{
+  border: 10px solid ;
+  border-image: fill 1 linear-gradient(to bottom,transparent,#000000);
+}
+
 
 

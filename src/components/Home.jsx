@@ -36,7 +36,7 @@ function ImageCard({ data }) {
 
   return (
     <Link to={`${data.photographer.replace(/\s+/g, "")}`}>
-      <div className="card relative">
+      <div className="card relative ">
         {loading ? (
           <div className="skeleton-card animate-pulse bg-gray-300 h-64 w-48 sm:w-36 md:w-80 relative">
             <div className="absolute bottom-0 left-0 text-white p-4 z-10">
@@ -46,11 +46,15 @@ function ImageCard({ data }) {
           </div>
         ) : (
           <div>
-            <img
-              src={data.imageUrl}
-              alt={`${data.title}-image`}
-              className="w-full object-cover"
-            />
+            <picture>
+              <img
+                src={data.imageUrl}
+                alt={`${data.title}-image`}
+                className=" w-full object-cover relative"
+              />
+                <div className="absolute w-full h-full top-0 left-0 hero-img "></div>
+            </picture>
+              
             <div className="absolute bottom-0 left-0 text-white p-4">
               <h3 className="text-3xl font-semibold">{data.title}</h3>
               <h4 className="text-base">{data.photographer}</h4>

@@ -16,7 +16,7 @@ function Slides() {
   return (
     <div className="content-grid">
         <Navbar />
-        <div className="flex items-center py-6">
+        <div className="flex flex-col md:flex-row items-center py-6">
           <div className="relative  ">
               <img className="w-[40%] object-cover" src={slideData.imageUrl} alt={slideData.title} />
               <img className="w-[20%]" src={slideData.authorImg} alt={slideData.photographer} />
