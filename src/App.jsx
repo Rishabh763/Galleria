@@ -6,11 +6,12 @@ import NoPage from "./components/Nopage";
 import Slides from "./components/Slides";
 
 import ScrollToTop from "./components/ScrollToTop";
-import { useState } from "react";
+
 
 function App() {
-  const [slide, setslide] = useState(null);
+  
   return (
+
     <Router>
       <ScrollToTop />
       <Routes>

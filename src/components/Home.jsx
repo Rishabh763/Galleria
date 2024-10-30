@@ -3,15 +3,23 @@ import Navbar from "./Navbar";
 import data from "../data.json";
 import { Link } from "react-router-dom";
 
+import { ReactLenis, useLenis } from 'lenis/react'
+
 function Home() {
+
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+  })
+
   return (
+    <ReactLenis root>
     <div className="text-black content-grid">
       <Navbar />
       <div className="layout">
         {
-            data.map((d,index)=>{
-                return(
-                    <Link to={`${d.photographer.replace(/\s+/g, "")}`}>
+          data.map((d,index)=>{
+            return(
+              <Link to={`${d.photographer.replace(/\s+/g, "")}`}>
                       <div key={d.id} className="card relative border-black">
                           <img src={`${d.imageUrl}`} alt=""/>
                           <div className="absolute bottom-0 left-0 text-white p-4">
@@ -22,11 +30,10 @@ function Home() {
                     </Link>
                 )
             })
-
-        }
-
+          }
       </div>
     </div>
+          </ReactLenis>
   );
 }
 
