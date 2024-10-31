@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Navbar() {
   return (
     <div className='full-width bg-red-50 border-b-2 border-black'>
-        <div className='py-8'>
-            <h1 className='text-5xl font-bold'><Link to='/'>Galleria.</Link></h1>
+        <div className='py-4 md:py-8'>
+            <h1 className='text-2xl md:text-5xl font-bold'><Link to='/'>Galleria</Link></h1>
         </div>
     </div>
   )
