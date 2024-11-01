@@ -14,8 +14,8 @@ function Home() {
       <div className="text-black content-grid">
         <Navbar />
         <div className="layout">
-          {data.map((d) => (
-            <ImageCard key={d.id} data={d} />
+          {data.map((d,index) => (
+            <ImageCard key={index} data={d} />
           ))}
         </div>
       </div>
@@ -28,14 +28,14 @@ function ImageCard({ data }) {
 
   useEffect(() => {
     const img = new Image();
-    img.src = data.imageUrl;
-
+    img.src = data.images.thumbnail;
+    
     img.onload = () => setLoading(false);
     img.onerror = () => setLoading(false); // Handle error state if needed
-  }, [data.imageUrl]);
+  }, [data.images.thumbnail]);
 
   return (
-    <Link to={`${data.photographer.replace(/\s+/g, "")}`}>
+    <Link to={`${data.name.replace(/\s+/g, "")}`}>
       <div className="card relative ">
         {loading ? (
           <div className="skeleton-card animate-pulse bg-gray-300 h-64 w-48 sm:w-36 md:w-80 relative">
@@ -48,16 +48,16 @@ function ImageCard({ data }) {
           <div>
             <picture>
               <img
-                src={data.imageUrl}
-                alt={`${data.title}-image`}
+                src={data.images.thumbnail}
+                alt={`${data.name}-image`}
                 className=" w-full object-cover relative"
               />
                 <div className="absolute w-full h-full top-0 left-0 hero-img "></div>
             </picture>
               
             <div className="absolute bottom-0 left-0 text-white p-4">
-              <h3 className="text-3xl font-semibold">{data.title}</h3>
-              <h4 className="text-base">{data.photographer}</h4>
+              <h3 className="text-3xl font-semibold">{data.name}</h3>
+              <h4 className="text-base">{data.artist.name}</h4>
             </div>
           </div>
         )}

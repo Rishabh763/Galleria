@@ -16,7 +16,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:photographer" element={<Slides />} />
+        <Route path="/:photo" element={<Slides />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </Router>
